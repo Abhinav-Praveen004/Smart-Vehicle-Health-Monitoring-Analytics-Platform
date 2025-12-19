@@ -17,9 +17,17 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/vehicle-health-monitor')
-.then(() => console.log('✅ MongoDB Connected'))
-.catch((err) => console.error('❌ MongoDB Connection Error:', err));
+console.log('🔗 Attempting to connect to MongoDB...');
+mongoose.connect(process.env.MONGODB_URI)
+.then(() => {
+  console.log('✅ MongoDB Connected successfully');
+  console.log('📊 Database:', mongoose.connection.name);
+})
+.catch((err) => {
+  console.error('❌ MongoDB Connection Error:', err.message);
+  console.error('🔍 Full error:', err);
+  process.exit(1);
+});
 
 // Routes
 app.use('/api/auth', authRoutes);
