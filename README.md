@@ -241,7 +241,7 @@ This project is licensed under the MIT License.
 
 ## 👥 Authors
 
-Your Name - Vehicle Health Monitor
+Abhinav Praveen - Vehicle Health Monitor
 
 ## 🙏 Acknowledgments
 
